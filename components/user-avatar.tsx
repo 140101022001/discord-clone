@@ -1,0 +1,13 @@
+import { Avatar, AvatarImage } from "@/components/ui/avatar"
+import { cn } from "@/lib/utils"
+
+const UserAvatar = ({imageUrl, className}: {imageUrl: string, className: string}) => {
+    return (
+        <Avatar
+        className={cn('h-7 w-7 md:h-10 md:w-10', className)}>
+            <AvatarImage src={imageUrl} />
+        </Avatar>
+    )
+}
+
+export default UserAvatar
