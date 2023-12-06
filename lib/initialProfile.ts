@@ -16,15 +16,15 @@ export const initialProfile = async () => {
     })
     if (profile) {
         return profile;
+    } else {
+        const newProfile = await db.profile.create({
+            data: {
+                userId: user.id,
+                name: `${user.firstName} ${user.lastName}`,
+                imageUrl: user.imageUrl,
+                email: user.emailAddresses[0].emailAddress
+            }
+        })
+        return newProfile;
     }
-    
-    const newProfile = await db.profile.create({
-        data: {
-            userId: user.id,
-            name: `${user.firstName} ${user.lastName}`,
-            imageUrl: user.imageUrl,
-            email: user.emailAddresses[0].emailAddress
-        }
-    })
-    return newProfile;
 }
