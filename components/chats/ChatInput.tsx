@@ -44,13 +44,14 @@ const ChatInput = ({
     const isLoading = form.formState.isSubmitting;
 
     const onSubmit = async (values: z.infer<typeof ChatInputSchema>) => {
+        let keep = values;
+        form.reset();
         try {
             const url = qs.stringifyUrl({
                 url: apiUrl,
                 query
             })
-            await axios.post(url, values);
-            form.reset();
+            await axios.post(url, keep);
             router.refresh();
         } catch (err) {
             console.log(err);
