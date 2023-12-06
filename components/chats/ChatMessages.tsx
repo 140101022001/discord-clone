@@ -58,7 +58,7 @@ const ChatMessages = ({
     useChatSocket({ addKey, updateKey, queryKey: queryKey });
     useChatScroll({
         chatRef,
-        count: data?.pages?.[0].items?.length ?? 0,
+        count: data?.pages?.[0]?.items?.length ?? 0,
         bottomRef,
         loadMore: fetchNextPage,
         shouldLoadMore: !isFetchingNextPage && !!hasNextPage

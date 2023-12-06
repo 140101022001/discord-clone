@@ -20,27 +20,27 @@ const InviteCodePage = async ({params}: {params: { inviteCode: string}}) => {
             member: true
         }
     })
+    
     existingServer?.member.map(async (member) => {
         if (member.profileId == profile.id) {
             return redirect(`/server/${existingServer.id}`)
-        } else  {
-            await db.servers.update({
-                where: {
-                    inviteCode: params.inviteCode
-                },
-                data: {
-                    member: {
-                        create: [
-                            {
-                                profileId: profile.id
-                            }
-                        ]
-                    }
-                }
-            })
         }
     })
     if (existingServer) {
+        await db.servers.update({
+            where: {
+                inviteCode: params.inviteCode
+            },
+            data: {
+                member: {
+                    create: [
+                        {
+                            profileId: profile.id
+                        }
+                    ]
+                }
+            }
+        })
         return redirect(`/server/${existingServer.id}`)
     }
     return (

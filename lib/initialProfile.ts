@@ -14,6 +14,7 @@ export const initialProfile = async () => {
             userId : user.id
         }
     })
+
     if (profile) {
         return profile;
     } else {

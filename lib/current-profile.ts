@@ -12,6 +12,7 @@ const currentProfile = async () => {
             userId: userId as string
         }
     })
+    
     return profile
 }
 

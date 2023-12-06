@@ -94,7 +94,7 @@ const ChatItem = ({
 
         }
     }
-
+    
     const fileType = fileUrl?.split('.').pop();
 
     const isAdmin = currentMember.role == MemberRole.ADMIN

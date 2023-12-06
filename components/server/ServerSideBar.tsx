@@ -53,7 +53,9 @@ const ServerSideBar = async ({ serverId }: { serverId: string }) => {
     const audioChannels = server?.channel.filter((channel) => channel.type === ChannelType.AUDIO);
     const videoChannels = server?.channel.filter((channel) => channel.type === ChannelType.VIDEO);
 
-    const members = server?.member.filter((member) => member.profileId !== profile?.id);   
+    const members = server?.member.filter((member) => member.profileId !== profile?.id);
+    // console.log(members);
+    
 
     const role = server?.member.find((members) => members.profileId == profile?.id)?.role
 
