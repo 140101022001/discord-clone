@@ -53,15 +53,7 @@ const ServerSideBar = async ({ serverId }: { serverId: string }) => {
     const audioChannels = server?.channel.filter((channel) => channel.type === ChannelType.AUDIO);
     const videoChannels = server?.channel.filter((channel) => channel.type === ChannelType.VIDEO);
 
-    const members = server?.member.filter((member) => member.profileId !== profile?.id);
-    const uniqueProfileObjectsMap = new Map();
-    members?.forEach((obj) => {
-        uniqueProfileObjectsMap.set(obj.profileId, obj);
-    });
-    const uniqueProfileObjects = Array.from(uniqueProfileObjectsMap.values());
-
-    console.log(uniqueProfileObjects);
-    
+    const members = server?.member.filter((member) => member.profileId !== profile?.id);   
 
     const role = server?.member.find((members) => members.profileId == profile?.id)?.role
 
